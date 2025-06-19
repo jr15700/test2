@@ -1,0 +1,498 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://localhost:5000/
+Subject: Inventory Management
+Date: Sat, 12 Apr 2025 01:18:10 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--2dx5SD265VKVxoAqQZ739B7kgN5gGlKxJxsIERWGmk----"
+
+
+------MultipartBoundary--2dx5SD265VKVxoAqQZ739B7kgN5gGlKxJxsIERWGmk----
+Content-Type: text/html
+Content-ID: <frame-F37A06B1B607ABB187F85689D912E133@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://localhost:5000/
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8">
+ =20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <title>Inventory Management</title>
+  <link rel=3D"stylesheet" href=3D"http://localhost:5000/css/style.css">
+</head>
+<body>
+  <!-- Login container -->
+  <div id=3D"login-container" style=3D"display: none;">
+    <div class=3D"auth-container">
+      <div class=3D"tabs">
+        <button class=3D"tab-btn active" id=3D"login-tab">Login</button>
+        <button class=3D"tab-btn" id=3D"register-tab">Register</button>
+      </div>
+     =20
+      <div id=3D"login-form-container" class=3D"tab-content">
+        <h2>Login to Inventory System</h2>
+        <form id=3D"login-form">
+          <div class=3D"form-group">
+            <label>Email</label>
+            <input type=3D"email" id=3D"login-email" required=3D"">
+          </div>
+          <div class=3D"form-group">
+            <label>Password</label>
+            <input type=3D"password" id=3D"login-password" required=3D"">
+          </div>
+          <button type=3D"submit" class=3D"btn-submit">Login</button>
+        </form>
+      </div>
+     =20
+      <div id=3D"register-form-container" class=3D"tab-content" style=3D"di=
+splay: none;">
+        <h2>Create New Account</h2>
+        <form id=3D"register-form">
+          <div class=3D"form-group">
+            <label>Name</label>
+            <input type=3D"text" id=3D"register-name" required=3D"">
+          </div>
+          <div class=3D"form-group">
+            <label>Email</label>
+            <input type=3D"email" id=3D"register-email" required=3D"">
+          </div>
+          <div class=3D"form-group">
+            <label>Password</label>
+            <input type=3D"password" id=3D"register-password" required=3D""=
+>
+          </div>
+          <div class=3D"form-group">
+            <label>Confirm Password</label>
+            <input type=3D"password" id=3D"register-confirm-password" requi=
+red=3D"">
+          </div>
+          <button type=3D"submit" class=3D"btn-submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+ =20
+  <!-- Inventory container -->
+  <div id=3D"inventory-container" style=3D"display: none;">
+    <div class=3D"header">
+      <h1>Inventory Management</h1>
+      <div class=3D"user-controls">
+        <span id=3D"username-display"></span>
+        <button id=3D"logout-btn" class=3D"btn-logout">Logout</button>
+      </div>
+      <button class=3D"btn-add" id=3D"openModal">
+        <span>Add Item</span>
+      </button>
+    </div>
+
+    <!-- Rest of your existing inventory HTML here -->
+    <div class=3D"search-filter-container">
+      <div class=3D"search-box">
+        <input type=3D"text" placeholder=3D"Search inventory...">
+      </div>
+      <select class=3D"dropdown">
+        <option>All Categories</option>
+      </select>
+    </div>
+
+    <div class=3D"table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Stock Number</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id=3D"inventory-body">
+          <!-- Items go here -->
+        </tbody>
+      </table>
+      <div id=3D"empty-state" class=3D"empty-state" style=3D"display: none;=
+">
+        <p>No inventory items found. Add your first item to get started.</p=
+>
+        <button class=3D"btn-add" id=3D"openModalEmpty">Add Item</button>
+      </div>
+    </div>
+
+    <!-- Main Modal -->
+    <div id=3D"itemModal" class=3D"modal">
+      <!-- Modal content from your existing HTML -->
+      <div class=3D"modal-content">
+        <div class=3D"modal-header">
+          <h2>Add New Item</h2>
+          <span class=3D"close" id=3D"closeModal">=C3=97</span>
+        </div>
+
+        <div class=3D"form-group form-row">
+          <div>
+            <label>Stock Property Number</label>
+            <input type=3D"text" id=3D"stockNumber">
+          </div>
+          <div>
+            <label>Item Name</label>
+            <input type=3D"text" id=3D"itemName">
+          </div>
+        </div>
+
+        <div class=3D"form-group">
+          <label>Description</label>
+          <textarea id=3D"description"></textarea>
+        </div>
+
+        <div class=3D"form-group form-row">
+          <div>
+            <label>Category</label>
+            <input type=3D"text" id=3D"category">
+          </div>
+          <div>
+            <label>Current Location</label>
+            <input type=3D"text" id=3D"location">
+          </div>
+        </div>
+
+        <div class=3D"form-group form-row">
+          <div>
+            <label>Quantity</label>
+            <input type=3D"number" value=3D"0" id=3D"quantity">
+          </div>
+          <div>
+            <label>Unit</label>
+            <input type=3D"text" placeholder=3D"pcs, blks, rolls, etc." id=
+=3D"unit">
+          </div>
+        </div>
+
+        <div class=3D"form-group">
+          <label>Low Stock Threshold</label>
+          <input type=3D"number" value=3D"5" id=3D"lowStockThreshold">
+        </div>
+
+        <div class=3D"form-actions">
+          <button class=3D"btn-cancel" id=3D"cancelModal">Cancel</button>
+          <button class=3D"btn-submit" id=3D"submitBtn">Add Item</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quantity Modal -->
+    <div id=3D"quantity-modal" class=3D"modal">
+      <div class=3D"modal-content">
+        <div class=3D"modal-header">
+          <h2 id=3D"quantity-modal-title">Add Quantity</h2>
+          <span class=3D"close" id=3D"close-quantity-modal">=C3=97</span>
+        </div>
+       =20
+        <form id=3D"quantity-form">
+          <div class=3D"form-group">
+            <label>Quantity to Add/Remove</label>
+            <input type=3D"number" id=3D"quantity-amount" min=3D"1" value=
+=3D"1" required=3D"">
+          </div>
+         =20
+          <div class=3D"form-actions">
+            <button type=3D"button" class=3D"btn-cancel" id=3D"cancel-quant=
+ity-modal">Cancel</button>
+            <button type=3D"submit" class=3D"btn-submit" id=3D"submit-quant=
+ity-btn">Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script imports -->
+ =20
+ =20
+ =20
+
+</body></html>
+------MultipartBoundary--2dx5SD265VKVxoAqQZ739B7kgN5gGlKxJxsIERWGmk----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://localhost:5000/css/style.css
+
+@charset "utf-8";
+
+:root { --primary-color: #25eb77; --primary-hover: #1dd84c; --danger-color:=
+ #dc2626; --danger-hover: #b91c1c; --edit-color: #0ea5e9; --edit-hover: #02=
+84c7; --light-bg: #f8fafc; --dark-text: #1e293b; --medium-text: #4b5563; --=
+light-text: #64748b; --border-color: #e2e8f0; --shadow-sm: 0 1px 2px rgba(0=
+, 0, 0, 0.05); --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1=
+px rgba(0, 0, 0, 0.06); --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0=
+ 4px 6px -2px rgba(0, 0, 0, 0.05); --radius-sm: 4px; --radius-md: 6px; --ra=
+dius-lg: 8px; --transition: all 0.2s ease; }
+
+* { box-sizing: border-box; }
+
+body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", R=
+oboto, Oxygen, Ubuntu, Cantarell, sans-serif; margin: 0px; padding: 0px; ba=
+ckground-color: var(--light-bg); color: var(--dark-text); line-height: 1.5;=
+ }
+
+h1, h2 { margin: 0px; font-weight: 600; }
+
+button { cursor: pointer; font-family: inherit; }
+
+.container { max-width: 1200px; margin: 0px auto; padding: 0px 16px; }
+
+.header { background-color: var(--primary-color); color: white; padding: 1.=
+25rem 2rem; display: flex; justify-content: space-between; align-items: cen=
+ter; box-shadow: var(--shadow-md); position: sticky; top: 0px; z-index: 100=
+; }
+
+.header h1 { font-size: 1.5rem; letter-spacing: -0.025em; }
+
+.logo { width: 200px; height: auto; }
+
+.btn-add, .btn-submit, .btn-cancel, .btn-edit, .btn-delete { padding: 0.6re=
+m 1rem; border: none; border-radius: var(--radius-md); font-size: 0.875rem;=
+ font-weight: 500; transition: var(--transition); display: inline-flex; ali=
+gn-items: center; justify-content: center; gap: 0.375rem; }
+
+.btn-add { background-color: white; color: var(--primary-color); box-shadow=
+: var(--shadow-sm); }
+
+.btn-add:hover { background-color: rgba(255, 255, 255, 0.9); transform: tra=
+nslateY(-1px); }
+
+.btn-submit { background-color: var(--primary-color); color: white; }
+
+.btn-submit:hover { background-color: var(--primary-hover); transform: tran=
+slateY(-1px); }
+
+.btn-cancel { background-color: rgb(241, 245, 249); color: var(--medium-tex=
+t); }
+
+.btn-cancel:hover { background-color: rgb(226, 232, 240); }
+
+.btn-edit { background-color: var(--edit-color); color: white; }
+
+.btn-edit:hover { background-color: var(--edit-hover); }
+
+.btn-delete { background-color: var(--danger-color); color: white; }
+
+.btn-delete:hover { background-color: var(--danger-hover); }
+
+.search-filter-container { display: flex; justify-content: space-between; a=
+lign-items: center; padding: 1rem 2rem; background-color: white; border-bot=
+tom: 1px solid var(--border-color); box-shadow: var(--shadow-sm); margin-bo=
+ttom: 1.5rem; }
+
+.search-box input { padding: 0.75rem 1rem; width: 300px; border: 1px solid =
+var(--border-color); border-radius: var(--radius-md); font-size: 0.9rem; tr=
+ansition: var(--transition); }
+
+.search-box input:hover { border-color: rgb(203, 213, 225); }
+
+.search-box input:focus { outline: none; border-color: var(--primary-color)=
+; box-shadow: rgba(37, 99, 235, 0.1) 0px 0px 0px 3px; }
+
+.dropdown { padding: 0.75rem 1rem; border: 1px solid var(--border-color); b=
+order-radius: var(--radius-md); background-color: white; font-size: 0.9rem;=
+ transition: var(--transition); cursor: pointer; min-width: 180px; }
+
+.dropdown:hover { border-color: rgb(203, 213, 225); }
+
+.dropdown:focus { outline: none; border-color: var(--primary-color); box-sh=
+adow: rgba(37, 99, 235, 0.1) 0px 0px 0px 3px; }
+
+.table-container { background-color: white; border-radius: var(--radius-lg)=
+; box-shadow: var(--shadow-md); overflow: hidden; margin: 0px 2rem 2rem; }
+
+table { width: 100%; border-collapse: collapse; background-color: white; }
+
+th, td { padding: 1rem 1.25rem; text-align: left; border-bottom: 1px solid =
+var(--border-color); }
+
+th { background-color: rgb(248, 250, 252); color: var(--medium-text); font-=
+weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing=
+: 0.05em; }
+
+td { font-size: 0.9375rem; color: var(--dark-text); }
+
+tr:last-child td { border-bottom: none; }
+
+tr:hover { background-color: rgb(248, 250, 252); }
+
+.actions-cell { white-space: nowrap; display: flex; gap: 0.5rem; }
+
+.actions-cell button { margin: 0px; padding: 0.35rem 0.75rem; font-size: 0.=
+75rem; border-radius: var(--radius-sm); }
+
+.empty-state { padding: 3rem; text-align: center; color: var(--light-text);=
+ }
+
+.empty-state p { margin-bottom: 1.5rem; }
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0px; top: 0px=
+; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); overflow=
+-y: auto; padding: 2rem; backdrop-filter: blur(4px); }
+
+.modal-content { background-color: rgb(255, 255, 255); margin: 2rem auto; p=
+adding: 2rem; max-width: 700px; border-radius: var(--radius-lg); box-shadow=
+: var(--shadow-lg); position: relative; animation: 0.3s ease 0s 1 normal no=
+ne running fadeIn; }
+
+@keyframes fadeIn {=20
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+.modal-header { display: flex; justify-content: space-between; align-items:=
+ center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px so=
+lid var(--border-color); }
+
+.modal-header h2 { font-size: 1.25rem; font-weight: 600; color: var(--dark-=
+text); }
+
+.close { font-size: 1.5rem; font-weight: bold; color: var(--light-text); cu=
+rsor: pointer; line-height: 1; transition: var(--transition); }
+
+.close:hover { color: var(--danger-color); }
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-row { display: flex; gap: 1.25rem; }
+
+.form-row > div { flex: 1 1 0%; }
+
+.form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem=
+; color: var(--dark-text); font-size: 0.9375rem; }
+
+.form-group input, .form-group textarea, .form-group select { width: 100%; =
+padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius=
+: var(--radius-md); background-color: rgb(248, 250, 252); font-size: 0.9375=
+rem; transition: var(--transition); color: var(--dark-text); }
+
+.form-group input:hover, .form-group textarea:hover, .form-group select:hov=
+er { border-color: rgb(203, 213, 225); }
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:foc=
+us { border-color: var(--primary-color); outline: none; background-color: w=
+hite; box-shadow: rgba(37, 99, 235, 0.1) 0px 0px 0px 3px; }
+
+textarea { resize: vertical; min-height: 100px; font-family: inherit; }
+
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin=
+-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);=
+ }
+
+@media (max-width: 768px) {
+  .form-row { flex-direction: column; gap: 1rem; }
+  .search-filter-container { flex-direction: column; align-items: stretch; =
+gap: 1rem; }
+  .search-box input { width: 100%; }
+  .table-container { margin: 0px 1rem 1rem; overflow-x: auto; }
+  .header { padding: 1rem; flex-direction: column; gap: 1rem; text-align: c=
+enter; }
+  .header h1 { margin-bottom: 0.5rem; }
+  .modal-content { padding: 1.5rem; margin: 1rem; }
+}
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+.font-bold { font-weight: 600; }
+
+.text-danger { color: var(--danger-color); }
+
+.text-success { color: rgb(16, 185, 129); }
+
+.text-warning { color: rgb(245, 158, 11); }
+
+.mt-4 { margin-top: 1rem; }
+
+.mb-4 { margin-bottom: 1rem; }
+
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+th:nth-child(4), td:nth-child(4) { text-align: right; padding-right: 8px; w=
+idth: 80px; }
+
+th:nth-child(5), td:nth-child(5) { text-align: left; padding-left: 8px; wid=
+th: 80px; color: var(--medium-text); }
+
+.quantity-value { font-weight: 600; text-align: right; }
+
+#quantity { text-align: right; font-weight: 600; }
+
+th:nth-child(4) { border-right: none; }
+
+th:nth-child(5) { border-left: none; }
+
+td:nth-child(4) { border-right: none; }
+
+td:nth-child(5) { border-left: none; }
+
+td.quantity-value.low { color: rgb(239, 68, 68); }
+
+@media (max-width: 768px) {
+  th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5) { widt=
+h: auto; }
+}
+
+.auth-container { max-width: 500px; margin: 100px auto; background-color: w=
+hite; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); paddin=
+g: 2rem; }
+
+.tabs { display: flex; margin-bottom: 2rem; border-bottom: 2px solid var(--=
+border-color); }
+
+.tab-btn { background: none; border: none; padding: 0.75rem 1rem; font-size=
+: 1rem; font-weight: 500; color: var(--medium-text); cursor: pointer; posit=
+ion: relative; transition: var(--transition); }
+
+.tab-btn.active { color: var(--primary-color); }
+
+.tab-btn.active::after { content: ""; position: absolute; bottom: -2px; lef=
+t: 0px; right: 0px; height: 2px; background-color: var(--primary-color); }
+
+.user-controls { display: flex; align-items: center; gap: 1rem; }
+
+#username-display { font-weight: 500; color: white; }
+
+.btn-logout { background-color: rgba(255, 255, 255, 0.2); color: white; bor=
+der: none; padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size=
+: 0.875rem; transition: var(--transition); }
+
+.btn-logout:hover { background-color: rgba(255, 255, 255, 0.3); }
+
+.quantity-actions { display: flex; gap: 0.25rem; margin-top: 0.5rem; }
+
+.btn-add-qty, .btn-remove-qty { padding: 0.25rem 0.5rem; font-size: 0.75rem=
+; border-radius: var(--radius-sm); border: none; color: white; width: 24px;=
+ height: 24px; display: flex; align-items: center; justify-content: center;=
+ transition: var(--transition); }
+
+.btn-add-qty { background-color: var(--primary-color); }
+
+.btn-add-qty:hover { background-color: var(--primary-hover); }
+
+.btn-remove-qty { background-color: var(--danger-color); }
+
+.btn-remove-qty:hover { background-color: var(--danger-hover); }
+
+#page-loader { position: fixed; top: 0px; left: 0px; width: 100%; height: 1=
+00%; background-color: rgba(255, 255, 255, 0.8); display: flex; flex-direct=
+ion: column; align-items: center; justify-content: center; z-index: 9999; }
+
+.loader-spinner { width: 50px; height: 50px; border-width: 4px; border-styl=
+e: solid; border-right-color: rgba(0, 0, 0, 0.1); border-bottom-color: rgba=
+(0, 0, 0, 0.1); border-left-color: rgba(0, 0, 0, 0.1); border-image: initia=
+l; border-radius: 50%; border-top-color: var(--primary-color); animation: 1=
+s ease-in-out 0s infinite normal none running spin; margin-bottom: 1rem; }
+
+@keyframes spin {=20
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+------MultipartBoundary--2dx5SD265VKVxoAqQZ739B7kgN5gGlKxJxsIERWGmk------
